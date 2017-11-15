@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_lsucs_logo"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/auth_key_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:height="@dimen/material_subheader_height"
+            android:gravity="center"
+            android:text="Auth Key"
+            android:textColor="@color/material_subheader_text_color_default"
+            android:textSize="@dimen/material_subheader_text_size"
+            app:layout_constraintStart_toStartOf="@+id/guideline_16dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <ImageView
+            android:id="@+id/auth_key_icon"
+            android:layout_width="@dimen/material_list_icon_size"
+            android:layout_height="@dimen/material_list_icon_size"
+            android:src="@drawable/ic_auth_key_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/auth_key_text"
+            app:layout_constraintStart_toStartOf="@+id/guideline_16dp"
+            app:layout_constraintTop_toTopOf="@+id/auth_key_text"
+            android:tint="@color/colorPrimary"/>
+
+        <EditText
+            android:id="@+id/auth_key_text"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/material_list_single_line_without_avatar_normal_height"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="@dimen/material_list_icon_last_position_margin_horizontal"
+            android:hint="Enter Auth Key"
+            android:inputType="textNoSuggestions"
+            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toStartOf="@+id/auth_key_button"
+            app:layout_constraintStart_toStartOf="@+id/guideline_72dp"
+            app:layout_constraintTop_toBottomOf="@+id/auth_key_title" />
+
+        <Button
+            android:id="@+id/auth_key_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_marginEnd="@dimen/material_list_icon_last_position_margin_horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/auth_key_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/auth_key_text" />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:id="@+id/auth_key_seperator"
+            android:background="#d9d9d9"
+            app:layout_constraintTop_toBottomOf="@+id/auth_key_text"
+            app:layout_constraintStart_toEndOf="@id/guideline_72dp"/>
+
+        <TextView
+            android:id="@+id/tracking_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:height="@dimen/material_subheader_height"
+            android:gravity="center"
+            android:text="Tracking"
+            android:textColor="@color/material_subheader_text_color_default"
+            android:textSize="@dimen/material_subheader_text_size"
+            app:layout_constraintStart_toStartOf="@+id/guideline_16dp"
+            app:layout_constraintTop_toBottomOf="@+id/auth_key_seperator" />
+
+        <ImageView
+            android:id="@+id/tracking_icon"
+            android:layout_width="@dimen/material_list_icon_size"
+            android:layout_height="@dimen/material_list_icon_size"
+            android:src="@drawable/ic_location_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tracking_text"
+            app:layout_constraintStart_toStartOf="@+id/guideline_16dp"
+            app:layout_constraintTop_toTopOf="@+id/tracking_text"
+            android:tint="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/tracking_text"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/material_list_single_line_without_avatar_normal_height"
+            android:layout_marginEnd="8dp"
+            android:gravity="center_vertical"
+            android:text="Toggle Tracking"
+            app:layout_goneMarginEnd="@dimen/material_list_icon_last_position_margin_horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/tracking_switch"
+            app:layout_constraintStart_toStartOf="@+id/guideline_72dp"
+            app:layout_constraintTop_toBottomOf="@+id/tracking_title" />
+
+        <Switch
+            android:id="@+id/tracking_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/material_list_icon_last_position_margin_horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/tracking_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tracking_text" />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:id="@+id/tracking_seperator"
+            android:background="#d9d9d9"
+            app:layout_constraintTop_toBottomOf="@+id/tracking_text"
+            app:layout_constraintStart_toEndOf="@id/guideline_72dp"/>
+
+        <TextView
+            android:id="@+id/upload_csv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:height="@dimen/material_subheader_height"
+            android:gravity="center"
+            android:text="New DropUp Plan"
+            android:textColor="@color/material_subheader_text_color_default"
+            android:textSize="@dimen/material_subheader_text_size"
+            app:layout_constraintStart_toStartOf="@+id/guideline_16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tracking_seperator" />
+
+        <ImageView
+            android:id="@+id/upload_csv_icon"
+            android:layout_width="@dimen/material_list_icon_size"
+            android:layout_height="@dimen/material_list_icon_size"
+            android:src="@drawable/ic_file_upload_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/upload_csv_text"
+            app:layout_constraintStart_toStartOf="@+id/guideline_16dp"
+            app:layout_constraintTop_toTopOf="@+id/upload_csv_text"
+            android:tint="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/upload_csv_text"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/material_list_single_line_without_avatar_normal_height"
+            android:layout_marginEnd="8dp"
+            android:gravity="center_vertical"
+            android:text="Upload New CSV Plan"
+            app:layout_goneMarginEnd="@dimen/material_list_icon_last_position_margin_horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/upload_csv_button"
+            app:layout_constraintStart_toStartOf="@+id/guideline_72dp"
+            app:layout_constraintTop_toBottomOf="@+id/upload_csv_title" />
+
+        <Button
+            android:id="@+id/upload_csv_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload"
+            android:layout_marginEnd="@dimen/material_list_icon_last_position_margin_horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/upload_csv_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/upload_csv_text" />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:id="@+id/upload_csv_seperator"
+            android:background="#d9d9d9"
+            app:layout_constraintTop_toBottomOf="@+id/upload_csv_text"
+            app:layout_constraintStart_toEndOf="@id/guideline_72dp"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/material_subheader_padding_start" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_72dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/material_list_text_second_position_edge_margin_start" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

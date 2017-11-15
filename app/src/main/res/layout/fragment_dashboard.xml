@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/address_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:height="@dimen/material_subheader_height"
+            android:gravity="center"
+            android:text="Current DropUp Address"
+            android:textColor="@color/material_subheader_text_color_default"
+            android:textSize="@dimen/material_subheader_text_size"
+            app:layout_constraintStart_toStartOf="@+id/guideline_16dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/address_icon"
+            android:layout_width="@dimen/material_list_icon_size"
+            android:layout_height="@dimen/material_list_icon_size"
+            android:src="@drawable/ic_location_black_24dp"
+            android:tint="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/address_text"
+            app:layout_constraintStart_toStartOf="@+id/guideline_16dp"
+            app:layout_constraintTop_toTopOf="@+id/address_text" />
+
+        <TextView
+            android:id="@+id/address_text"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/material_list_single_line_without_avatar_normal_height"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            app:layout_constraintEnd_toStartOf="@+id/address_button"
+            app:layout_constraintStart_toStartOf="@+id/guideline_72dp"
+            app:layout_constraintTop_toBottomOf="@+id/address_title"
+            app:layout_goneMarginEnd="@dimen/material_list_icon_last_position_margin_horizontal"
+            tools:text="55 Oxford Street, LE11 5DP, lots more text here ahhhhh" />
+
+        <Button
+            android:id="@+id/address_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/material_list_icon_last_position_margin_horizontal"
+            android:text="Navigate"
+            app:layout_constraintBottom_toBottomOf="@+id/address_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/address_text" />
+
+        <View
+            android:id="@+id/address_seperator"
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:background="#d9d9d9"
+            app:layout_constraintStart_toEndOf="@id/guideline_72dp"
+            app:layout_constraintTop_toBottomOf="@+id/address_text" />
+
+        <Button
+            android:id="@+id/previous_dropup_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Previous DropUp"
+            app:layout_constraintEnd_toStartOf="@+id/next_dropup_button"
+            app:layout_constraintStart_toStartOf="@+id/guideline_16dp"
+            app:layout_constraintTop_toBottomOf="@+id/address_text" />
+
+        <Button
+            android:id="@+id/next_dropup_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Next DropUp"
+            app:layout_constraintBottom_toBottomOf="@+id/previous_dropup_button"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_end_16dp"
+            app:layout_constraintStart_toEndOf="@+id/previous_dropup_button"
+            app:layout_constraintTop_toTopOf="@+id/previous_dropup_button" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/material_subheader_padding_start" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_72dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/material_list_text_second_position_edge_margin_start" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_end_16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/material_subheader_padding_start" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>
