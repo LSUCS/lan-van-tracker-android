@@ -23,6 +23,7 @@ import uk.org.lsucs.lanvantracker.fragments.dropups.DropUpFragment;
 import uk.org.lsucs.lanvantracker.fragments.home.HomeFragment;
 import uk.org.lsucs.lanvantracker.fragments.people.PeopleFragment;
 import uk.org.lsucs.lanvantracker.manager.DataManager;
+import uk.org.lsucs.lanvantracker.retrofit.RetrofitInstance;
 import uk.org.lsucs.lanvantracker.retrofit.models.DropUp;
 import uk.org.lsucs.lanvantracker.utils.MinimalDisposableObserver;
 
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private CompositeDisposable subscriptions = new CompositeDisposable();
     private DataManager dataManager;
+    private RetrofitInstance retrofitInstance;
 
     private BottomNavigationView navigationView;
     private ProgressBar spinner;
@@ -140,5 +142,12 @@ public class MainActivity extends AppCompatActivity {
                 }).show();
             }
         }));
+    }
+
+    public RetrofitInstance getRetrofitInstance() {
+        if(retrofitInstance == null) {
+            retrofitInstance = new RetrofitInstance(this);
+        }
+        return retrofitInstance;
     }
 }

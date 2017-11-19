@@ -13,6 +13,7 @@ import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.BehaviorSubject;
 import io.reactivex.subjects.PublishSubject;
+import uk.org.lsucs.lanvantracker.MainActivity;
 import uk.org.lsucs.lanvantracker.retrofit.RetrofitInstance;
 import uk.org.lsucs.lanvantracker.retrofit.models.CurrentDropUp;
 import uk.org.lsucs.lanvantracker.retrofit.models.DropUp;
@@ -28,7 +29,7 @@ public class DataManager {
 
     private static final String TAG = "DataManager";
 
-    private final Context context;
+    private final MainActivity activity;
 
     private LinkedList<DropUp> dropUps;
     private Integer currentDropUpId;
@@ -46,11 +47,11 @@ public class DataManager {
 
     private boolean lastResponseError;
 
-    public DataManager(final Context context) {
+    public DataManager(final MainActivity activity) {
 
         System.out.println("Data Manager Created");
 
-        this.context = context;
+        this.activity = activity;
 
         mHandler = new Handler();
 
@@ -58,7 +59,7 @@ public class DataManager {
         newCurrentDropUpSubject = BehaviorSubject.create();
         newConnectionError = PublishSubject.create();
 
-        initialiseRunnables(context);
+        initialiseRunnables(activity);
     }
 
     public DisposableObserver<LinkedList<DropUp>> subscribeToNewDropUps(DisposableObserver<LinkedList<DropUp>> observer) {
@@ -121,7 +122,7 @@ public class DataManager {
             CurrentDropUp currentDropUp = new CurrentDropUp();
             currentDropUp.setCurrentDropUpId(currentDropUpId);
 
-            new RetrofitInstance(context).dropUpAPI().setCurrentDropUp(currentDropUp)
+            activity.getRetrofitInstance().dropUpAPI().setCurrentDropUp(currentDropUp)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new MinimalDisposableObserver<CurrentDropUp>() {
@@ -160,7 +161,7 @@ public class DataManager {
             @Override
             public void run() {
                 try {
-                    new RetrofitInstance(context).dropUpAPI().getDropUps()
+                    activity.getRetrofitInstance().dropUpAPI().getDropUps()
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(new MinimalDisposableObserver<LinkedList<DropUp>>() {
@@ -192,7 +193,7 @@ public class DataManager {
             @Override
             public void run() {
                 try {
-                    new RetrofitInstance(context).dropUpAPI().getCurrentDropUp()
+                    activity.getRetrofitInstance().dropUpAPI().getCurrentDropUp()
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(new MinimalDisposableObserver<CurrentDropUp>() {
@@ -228,7 +229,7 @@ public class DataManager {
             @Override
             public void run() {
                 try {
-                    new RetrofitInstance(context).vanAPI().getVanStatus()
+                    activity.getRetrofitInstance().vanAPI().getVanStatus()
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(new MinimalDisposableObserver<VanStatus>() {

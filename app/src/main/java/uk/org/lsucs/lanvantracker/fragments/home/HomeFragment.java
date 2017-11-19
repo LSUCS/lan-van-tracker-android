@@ -154,7 +154,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Comp
                         RequestBody requestFile = RequestBody.create(MediaType.parse("test/csv"), selectedFile);
                         MultipartBody.Part body = MultipartBody.Part.createFormData("file", selectedFile.getName(), requestFile);
                         mainActivity.showLoadingBar();
-                        new RetrofitInstance(getContext()).dropUpAPI().setDropUps(body)
+                        mainActivity.getRetrofitInstance().dropUpAPI().setDropUps(body)
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe(new MinimalDisposableObserver<LinkedList<DropUp>>() {
